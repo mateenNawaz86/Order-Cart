@@ -56,3 +56,21 @@
   background-color: #4b4b4b;
   color: white;
 }
+
+@media (max-width: 450px) {
+  .item h3 {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .itemprice {
+    font-size: 10px;
+  }
+
+  .quantity span {
+    font-size: 14px;
+  }
+}
