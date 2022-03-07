@@ -5,6 +5,7 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     totalQuantity: 0,
+    changed: false,
   },
   reducers: {
     // get the new totalQuantity & item from payload & override it in the redux store
@@ -19,6 +20,7 @@ const cartSlice = createSlice({
       // here check the entered Item is already exist or NOT
       const existingItem = state.items.find((item) => item.id === newItem.id);
       state.totalQuantity++;
+      state.changed = true;
 
       // if item not exist then add the new Item with these functionalities to the cart
       if (!existingItem) {
@@ -40,6 +42,7 @@ const cartSlice = createSlice({
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
       state.totalQuantity--;
+      state.changed = true;
 
       // if item exist just one time then remove the entire item from the items array
       if (existingItem.quantity === 1) {
