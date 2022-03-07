@@ -5,7 +5,7 @@ import Products from "./components/Shop/Products";
 import Notification from "./components/UI/Notification";
 
 import { useSelector, useDispatch } from "react-redux";
-import { sendCartData } from "./store/cart-actions";
+import { sendCartData, fetchCartData } from "./store/cart-actions";
 
 let isInitial = true;
 
@@ -16,6 +16,7 @@ const App = () => {
 
   const dispatch = useDispatch();
 
+  // side-effect for send request/data to the firebase
   useEffect(() => {
     if (isInitial) {
       isInitial = false;
@@ -23,6 +24,11 @@ const App = () => {
     }
     dispatch(sendCartData(cart));
   }, [cart, dispatch]);
+
+  // side-effect for fetching data from the firebase
+  useEffect(() => {
+    dispatch(fetchCartData(cart));
+  }, []);
   return (
     <>
       {notification && (
