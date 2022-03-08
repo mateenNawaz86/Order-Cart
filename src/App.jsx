@@ -16,7 +16,7 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  // side-effect for send request/data to the firebase
+  // side-effect for send request/cart-data to firebase
   useEffect(() => {
     if (isInitial) {
       isInitial = false;
